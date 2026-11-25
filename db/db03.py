@@ -20,12 +20,12 @@ avg=90
 specialty='python'
 srank=''
 
-#------------------------------
-# 실행문 --- update
-sql = "delete stuscore2 where no=:no"
-cursor.execute(sql,no=2)
-cursor.close()
-#------------------------------
+# #------------------------------
+# # 실행문 --- update
+# sql = "delete stuscore2 where no=:no"
+# cursor.execute(sql,no=2)
+# cursor.close()
+# #------------------------------
 
 
 # #------------------------------
@@ -35,6 +35,15 @@ cursor.close()
 # cursor.execute(sql,height=180,specialty='C',no=3)
 # cursor.close()
 # #------------------------------
+
+#------------------------------
+# 실행문 --- insert
+in_list = [4,'홍홍홍','구로고']
+sql = "insert into stuscore2 (no,name,school) values\
+    (:1,:2,:3)"
+cursor.execute(sql,in_list)
+cursor.close()
+#------------------------------
 
 
 # #------------------------------
