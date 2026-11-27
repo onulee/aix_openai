@@ -16,7 +16,8 @@ def blist(request):
     # db접속
     conn = oracledb.connect(ora_conn)
     cursor = conn.cursor()
-    sql = 'select * from board'
+    sql = '''select bno,nickname,btitle,bcontent,bgroup,bstep,bindent,bhit,bdate
+            from board a,member b where a.id = b.id'''
     cursor.execute(sql)
     # 컬럼정보
     columns = [col[0] for col in cursor.description]
