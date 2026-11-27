@@ -23,9 +23,8 @@ def blist(request):
     columns = [col[0] for col in cursor.description]
     rows = cursor.fetchall()
     print('확인 : ',columns)
-
-
-
+    rows_list = [dict(zip(columns,row)) for row in rows]
     cursor.close()
     conn.close()
-    return render (request,'blist.html')
+    context={'blist':rows_list}
+    return render (request,'blist.html',context)
