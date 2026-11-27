@@ -369,17 +369,19 @@
 <input placeholder="검색어를 입력하세요." type="text"/>
 <button>검색</button>
 </div>
-<div>{{blist}}</div>
+
 <!-- NEWS LIST -->
 <div class="board-wrap"><table class="board-table"><thead><tr><th>번호</th><th>제목</th><th>작성자</th><th>작성일</th><th>조회수</th></tr></thead>
     <tbody>
+         {% for board in blist %}
          <tr>
-            <td class="number">16</td>
-            <td class="subject"><a href="#">새로운 조식 메뉴와 이용요금 변경 안내</a></td>
-            <td>관리자</td>
-            <td>2026.09.15</td>
-            <td>248</td>
+            <td class="number">{{board.BNO}}</td>
+            <td class="subject"><a href="#">{{board.BTITLE}}</a></td>
+            <td>{{board.NICKNAME}}</td>
+            <td>{{board.BDATE | date:'y-m-d'}}</td>
+            <td>{{board.BHIT}}</td>
         </tr>
+        {% endfor %}
     </tbody>
 </table>
 </div>
